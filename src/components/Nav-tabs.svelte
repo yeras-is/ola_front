@@ -1,5 +1,4 @@
 
-
 <script>
 </script>
 
@@ -85,7 +84,8 @@
 </style>
 
 <ul class="nav nav-tabs">
-    <li class="nav-item"><a class="nav-link active" href="#">In progress</a></li>
+    <li class="nav-item"><a class="nav-link active" href="#">All courses</a></li>
+    <li class="nav-item"><a class="nav-link" href="#">In progress</a></li>
     <li class="nav-item"><a class="nav-link" href="#">Completed</a></li>
     <li class="nav-item"><a class="nav-link" href="#">Failed</a></li>
 </ul>

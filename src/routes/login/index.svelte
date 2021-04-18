@@ -1,27 +1,35 @@
 <script>
+    import { goto, stores } from "@sapper/app";
+    const { session } = stores();
+
     let email= '';
     let password= '';
 
     const submit = async () => {
-        var myHeaders = new Headers();
-        myHeaders.append("Authorization", "Basic b2xhLWNsaWVudDozZjFlMmVjMmY5MjQ0NTNmZmFlOTVhMDQ5Mjg3ZGIyNmMxMzZkOTBmMDEwYTgzOGYxNWVmNjgyOTcyYjE3YzU0");
+            var myHeaders = new Headers();
+            myHeaders.append("Authorization", "Basic b2xhLWNsaWVudDozZjFlMmVjMmY5MjQ0NTNmZmFlOTVhMDQ5Mjg3ZGIyNmMxMzZkOTBmMDEwYTgzOGYxNWVmNjgyOTcyYjE3YzU0");
 
-        var formdata = new FormData();
-        formdata.append("grant_type", "password");
-        formdata.append("username", email);
-        formdata.append("password", password);
+            var formdata = new FormData();
+            formdata.append("grant_type", "password");
+            formdata.append("username", email);
+            formdata.append("password", password);
 
-        var requestOptions = {
-            method: 'POST',
-            headers: myHeaders,
-            body: formdata,
-            redirect: 'follow'
-        };
+            var requestOptions = {
+                method: 'POST',
+                headers: myHeaders,
+                body: formdata,
+                redirect: 'follow'
+            };
 
-        await fetch("http://91.135.203.14:8080/ola/rest/v2/oauth/token", requestOptions)
-                .then(response => response.text())
-                .then(result => console.log(result))
-                .catch(error => console.log('error', error));
+            let responce= await fetch("http://91.135.203.14:8080/ola/rest/v2/oauth/token", requestOptions)
+                    .then(response => response.json())
+                    // .then(result => console.log(result))
+                    // .catch(error => console.log('error', error));
+
+            if(responce) {
+                $session.token = responce.access_token;
+                goto("/doggie-details");
+            }
     }
 </script>
 

@@ -1,5 +1,5 @@
 <script>
-
+    import NavTabs from '../components/Nav-tabs.svelte'
 </script>
 
 <style>
@@ -113,14 +113,13 @@
     .navigation-clean-search .search-form .search-field:focus {
         border-bottom: 1px solid #ccc;
     }
-
 </style>
 
 <nav class="navbar navbar-light navbar-expand-md navigation-clean-search">
     <div class="container"><a class="navbar-brand" href="home/">OLA</a><button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-1"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
         <div class="collapse navbar-collapse" id="navcol-1">
             <ul class="navbar-nav">
-                <li class="nav-item"><a class="nav-link active" href="#">My cources</a></li>
+                <li class="nav-item"><a class="nav-link" href="myCourses/">My courses</a></li>
                 <li class="nav-item"><a class="nav-link" href="#">Market</a></li>
                 <li class="nav-item"><a class="nav-link" href="#">Profile</a></li>
             </ul>
@@ -131,3 +130,4 @@
         </div>
     </div>
 </nav>
+<NavTabs/>
